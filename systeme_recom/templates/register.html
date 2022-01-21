@@ -1,0 +1,185 @@
+{% load static %}
+<html lang="en">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>AgriPreci</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+     <link rel="shortcut icon" href="{% static '/systeme_recom/images/favicon.ico' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{% static '/systeme_recom/images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="{% static '/systeme_recom/css/bootstrap.min.css' %}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{% static '/systeme_recom/css/style.css' %}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static '/systeme_recom/css/responsive.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static '/systeme_recom/css/custom.css' %}">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+                        .card-registration .select-input.form-control[readonly]:not([disabled]) {
+              font-size: 1rem;
+              line-height: 2.15;
+              padding-left: .75em;
+              padding-right: .75em;
+
+            }
+            .card-registration .select-arrow {
+              top: 12px;
+            }
+
+
+                    #im { width:650px; height:780px; }
+                    #rg{ font-size:18px;
+                    }
+                    #cn{color:blue;
+                    font-family: italique;
+                    }
+                    #btn{
+                     background-color: #b0b435;
+                    }
+                    .col{
+                    box-shadow: 0 0 40px 0 #b0b435;
+                    }
+                    #h3{
+                    padding-top: 12px;
+                    }
+                    .mb-5{
+                        font-size:25px;
+                    }
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+ <section class="h-100 bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img
+               src="{% static '/systeme_recom/images/registe.jpg' %}" alt="Image" id="im"
+
+                class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;"
+              />
+                <h3 id="h3" class="text-center">Si vous avez déjà un compte, <a  href="{% url 'login' %}" id="cn">Connectez-vous</a> à la place.</h3>
+            </div>
+
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase">Formulaire d'incription</h3>
+
+               {% load crispy_forms_tags %}
+                   <form id="rg" method="POST" >
+                <div class="form-outline mb-4">
+                   {% csrf_token %}
+                               {{ register_form|crispy }}
+                </div>
+
+
+
+
+
+                <div class="d-flex justify-content-end pt-3">
+
+                  <button type="submit" id="btn" class="btn  btn-lg ms-2">S'inscrire</button>
+                </div></form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- Start Contact Us  -->
+    <!--<div class="contact-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-sm-12">
+                    <div class="contact-form-right">
+                        <h2> Inscriver-vous </h2>
+                        <p>
+                            Veuillez écrire votre nom, votre adresse e-mail et un message ci-dessous si vous avez des
+                            questions.
+                            L'un de nos collaborateurs se fera un plaisir de vous contacter directement et de répondre à
+                            vos questions dans les plus brefs délais.
+                        </p>
+                        {% load crispy_forms_tags %}
+                       <div class="container py-5">
+                           <h1>Inscription</h1>
+                           <form id="rg" method="POST" >
+                               {% csrf_token %}
+                               {{ register_form|crispy }}
+                               <button class="btn btn-primary" type="submit">Enregistrez</button>
+                           </form>
+                           <h3 class="text-center">Si vous avez déjà un compte, <a  href="{% url 'login' %}" id="cn">Connectez-vous</a> à la place.</h3>
+                       </div>
+
+                    </div>
+                </div>
+				<div class="col-lg-4 col-sm-12">
+                    <div class="left">
+                        <img src="{% static '/systeme_recom/images/registe.jpg' %}" alt="Image" id="im">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <!-- End Cart -->
+
+    <!-- Start Instagram Feed  -->
+
+    <!-- End Instagram Feed  -->
+
+
+    <!-- Start Footer  -->
+      <!-- Start copyright  -->
+
+    <!-- End copyright  -->
+
+
+    <!-- ALL JS FILES -->
+    <script src="{% static '/systeme_recom/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static '/systeme_recom/js/popper.min.js' %}"></script>
+    <script src="{% static '/systeme_recom/js/bootstrap.min.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static '/systeme_recom/js/jquery.superslides.min.js' %}"></script>
+    <script src="{% static '/systeme_recom/js/bootstrap-select.js' %}"></script>
+    <script src="{% static '/systeme_recom/js/inewsticker.js' %}"></script>
+    <script src="{% static '/systeme_recom/js/bootsnav.js' %}"></script>
+    <script src="{% static '/systeme_recom/js/images-loded.min.js' %}"></script>
+    <script src="{% static '/systeme_recom/js/isotope.min.js' %}"></script>
+    <script src="{% static '/systeme_recom/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static '/systeme_recom/js/baguetteBox.min.js' %}"></script>
+    <script src="{% static '/systeme_recom/js/form-validator.min.js' %}"></script>
+    <script src="{% static '/systeme_recom/js/contact-form-script.js' %}"></script>
+    <script src="{% static '/systeme_recom/js/custom.js' %}"></script>
+</body>
+
+</html>

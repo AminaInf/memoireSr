@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profil</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+             * {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    background-color: #000
+}
+
+.card {
+    box-shadow: 0 0 40px 0 #b0b435;
+    width: 650px;
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s
+
+}
+
+.image img {
+    transition: all 0.5s
+}
+
+.card:hover .image img {
+    transform: scale(1.5)
+}
+
+.btn {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%
+    background-color: #b0b435;
+}
+.btn-secondary{
+ background-color: #b0b435;
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.idd {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.idd1 {
+    font-size: 14px
+}
+
+.number {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.follow {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444444
+}
+
+.btn1 {
+    height: 40px;
+    width: 150px;
+    border: none;
+    background-color: #000;
+    color: #aeaeae;
+    font-size: 15px
+}
+
+.text span {
+    font-size: 16px;
+    color: #545454;
+    font-weight: 500
+}
+
+.icons i {
+    font-size: 19px
+}
+
+hr .new1 {
+    border: 1px solid
+}
+
+.join {
+    font-size: 18px;
+    color: #a0a0a0;
+    font-weight: bold
+}
+
+.date {
+    background-color: #ccc
+}
+a{
+font-size: 15px;
+color: white;
+}
+    </style>
+
+</head>
+<body class="bg-dark">
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="card p-4">
+        <div class=" image d-flex flex-column justify-content-center align-items-center">
+            <button class="btn btn-secondary"> <img src="{% static '/systeme_recom/images/person.png' %}" height="100" width="100" />
+                {% for u in users %}
+                                    {% if u.id == request.user.id %}
+                         {% for p in profile %}
+                            {% if p.user_id ==  u.id %}
+            </button> <span class="name mt-3">{{u.username}}</span> <span class="idd">{{u.email}}</span>
+            <div class="d-flex flex-row justify-content-center align-items-center gap-2">
+                <span class="idd1">Dernière connexion: {{u.last_login}}</span> <span><i class="fa fa-copy"></i></span> </div>
+
+            <div class=" d-flex mt-2"> <button class="btn1 btn-dark"><a href="{% url 'logout' %}">Deconnecter</a></button> </div>
+            <div class="text mt-3"> <span>Vous avez ci-dessous les cultures que vous avez choisit</span><br>
+                 <table class="table table-striped"  >
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Nom Culture</th>
+                                        <th scope="col">Variété</th>
+                                        <th scope="col">Rendement</th>
+                                        <th scope="col">Humidité</th>
+                                        <th scope="col">Cycle de maturation</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                     <tr>
+
+                                        <td>{{p.ID_NCULTURE}}</td>
+                                        <td>{{p.ID_VARIETE}} </td>
+                                        <td>{{p.ID_RENDEMENT}}</td>
+                                        <td>{{p.ID_HUMIDITE}}</td>
+                                        <td>{{p.ID_CM}}</td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                     </div>
+            <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center">
+                <span><i class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span>
+                <span><i class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> </div>
+            <div class=" px-2 rounded mt-4 date "> <span class="join">Date d'adhésion {{u.date_joined}}</span> </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
